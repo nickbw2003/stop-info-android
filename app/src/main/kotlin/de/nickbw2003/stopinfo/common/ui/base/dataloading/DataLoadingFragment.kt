@@ -14,6 +14,7 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
     protected abstract val viewModel: T
     protected open val viewsToHideOnNoData: List<View> = emptyList()
     protected open val reloadAction: (() -> Unit)? = null
+    protected open val usesCustomDataObserver: Boolean = false
 
     private val hasNoDataMessage: Boolean by lazy {
         no_data_view != null
@@ -27,7 +28,10 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
         viewModel.isLoading.observe(this, Observer { indicateLoading(it) })
         viewModel.error.observe(this, Observer { showError(it) })
         viewModel.info.observe(this, Observer { showInfo(it) })
-        viewModel.data.observe(this, Observer { handleDataChanged(it) })
+
+        if (!usesCustomDataObserver) {
+            viewModel.data.observe(this, Observer { handleDataChanged(it) })
+        }
 
         if (hasNoDataMessage) {
             viewModel.noDataMessageVisible.observe(this, Observer { showNoDataView(it) })

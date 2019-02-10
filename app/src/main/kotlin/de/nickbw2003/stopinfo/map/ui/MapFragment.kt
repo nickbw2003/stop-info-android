@@ -42,6 +42,8 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
 
     override val reloadAction: (() -> Unit)? = { onSearchForStationsClicked() }
 
+    override val usesCustomDataObserver: Boolean = true
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_map, container, false)
     }
@@ -81,6 +83,7 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
 
             viewModel.currentLocation.observe(this, Observer { setCurrentLocationOnMap(it) })
             viewModel.currentZoomedLocation.observe(this, Observer { setCurrentZoomedLocationOnMap(it) })
+            viewModel.data.observe(this, Observer { handleDataChanged(it) })
         }
     }
 
