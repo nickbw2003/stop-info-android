@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextAppearance.StopInfo.StationListHeader.Title" parent="@style/TextAppearance.AppCompat.Small" />
+
+    <style name="TextAppearance.StopInfo.StationItemView.Title" parent="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+    <style name="TextAppearance.StopInfo.StationItemView.Subtitle" parent="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
+    <style name="TextAppearance.StopInfo.DepartureItemView.Title" parent="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+    <style name="TextAppearance.StopInfo.DepartureItemView.Text" parent="@style/TextAppearance.MaterialComponents.Body2" />
+
+    <style name="TextAppearance.StopInfo.NoDataView.Text" parent="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+</resources>

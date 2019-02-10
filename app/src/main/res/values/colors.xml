@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="lighter_gray">#ddd</color>
+    <color name="lighter_blue">#5087ec</color>
+
+    <color name="current_location_marker_foreground">@color/lighter_blue</color>
+    <color name="station_marker_background">@color/colorPrimary</color>
+    <color name="station_marker_foreground">@android:color/white</color>
+</resources>

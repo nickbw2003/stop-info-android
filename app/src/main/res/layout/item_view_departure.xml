@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_spacing"
+    android:background="?attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/departure_time"
+        style="@style/TextAppearance.StopInfo.DepartureItemView.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:drawableStart="@drawable/ic_departure_time"
+        android:drawablePadding="@dimen/default_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="21.12.2019 14:38:21" />
+
+    <TextView
+        android:id="@+id/departure_line_title"
+        style="@style/TextAppearance.StopInfo.DepartureItemView.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_spacing"
+        android:ellipsize="end"
+        android:lines="2"
+        app:layout_constraintEnd_toStartOf="@id/departure_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="IRE InterRegioExpress - Stuttgart Hbf (oben)" />
+
+    <TextView
+        android:id="@+id/departure_line_direction_from_title"
+        style="@style/TextAppearance.StopInfo.DepartureItemView.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        android:text="@string/departure_line_direction_from_title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/departure_line_title" />
+
+    <TextView
+        android:id="@+id/departure_line_direction_from"
+        style="@style/TextAppearance.StopInfo.DepartureItemView.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        android:layout_marginEnd="@dimen/default_spacing"
+        app:layout_constraintEnd_toStartOf="@id/departure_time"
+        app:layout_constraintStart_toStartOf="@id/departure_line_route_details"
+        app:layout_constraintTop_toBottomOf="@id/departure_line_title"
+        tools:text="Karlsruhe Hbf" />
+
+    <TextView
+        android:id="@+id/departure_line_direction_route_details_title"
+        style="@style/TextAppearance.StopInfo.DepartureItemView.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        android:text="@string/departure_line_direction_route_details_title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/departure_line_direction_from_title" />
+
+    <TextView
+        android:id="@+id/departure_line_route_details"
+        style="@style/TextAppearance.StopInfo.DepartureItemView.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_spacing"
+        android:layout_marginTop="@dimen/default_spacing"
+        android:layout_marginEnd="@dimen/default_spacing"
+        app:layout_constraintEnd_toStartOf="@id/departure_time"
+        app:layout_constraintStart_toEndOf="@id/departure_line_direction_route_details_title"
+        app:layout_constraintTop_toBottomOf="@id/departure_line_direction_from"
+        tools:text="Karlsruhe Hbf" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/visible_views_in_expanded_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="departure_line_direction_from_title,departure_line_direction_from,departure_line_direction_route_details_title,departure_line_route_details" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

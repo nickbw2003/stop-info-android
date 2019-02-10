@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/map_dest">
+
+    <fragment
+        android:id="@+id/map_dest"
+        android:name="de.nickbw2003.stopinfo.map.ui.MapFragment"
+        android:label="@string/map_dest_label"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/map_to_station_detail"
+            app:destination="@id/station_detail_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/station_list_dest"
+        android:name="de.nickbw2003.stopinfo.stations.ui.search.StationSearchFragment"
+        android:label="@string/station_list_dest_label"
+        tools:layout="@layout/fragment_station_search">
+        <action
+            android:id="@+id/station_list_to_station_detail"
+            app:destination="@id/station_detail_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/station_detail_dest"
+        android:name="de.nickbw2003.stopinfo.stations.ui.detail.StationDetailFragment"
+        android:label="@string/station_detail_dest_label"
+        tools:layout="@layout/fragment_station_detail">
+
+        <argument
+            android:name="StationDetail.Station"
+            app:argType="de.nickbw2003.stopinfo.stations.data.models.Station"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

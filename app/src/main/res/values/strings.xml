@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name" translatable="false">StopInfo</string>
+
+    <string name="permission_request_dialog_title">Permission required</string>
+    <string name="permission_request_dialog_text">You need to grant access to the following permissions:\n</string>
+    <string name="permission_request_dialog_positive_option_title">OK</string>
+    <string name="permission_request_dialog_negative_option_title">Cancel</string>
+    <string name="permission_group_info_prefix" translatable="false">&#8226;\t\t</string>
+
+    <string name="activity_main_info_got_it">Got it</string>
+
+    <string name="fragment_map_station_search_button_label">Search nearby</string>
+
+    <string name="station_list_header_title_last_viewed_on_map">Last viewed on map</string>
+    <string name="station_list_header_title_nothing_found">Nothing found</string>
+    <string name="station_list_header_title_search_results">Search results</string>
+
+    <string name="map_dest_label">Map</string>
+    <string name="station_list_dest_label">List</string>
+    <string name="station_detail_dest_label">Station details</string>
+
+    <string name="info_search_for_nearby_stations_zoom">Zoom in to re-enable the search button</string>
+    <string name="info_tap_departure_list_item_to_show_details">Tap an item of the list to show more details</string>
+
+    <string name="error_location_permission_unavailable">Location permission not granted</string>
+    <string name="error_data_loading_stations_by_name">Error while searching for stations</string>
+    <string name="error_data_loading_stations_by_coordinate">Error while searching for stations</string>
+    <string name="error_data_loading_departures_by_origin_station">Error while searching for departures</string>
+    <string name="error_retry_label">Retry</string>
+
+    <string name="departure_line_direction_from_title_text">From:</string>
+    <string name="departure_line_direction_route_details_title_text">Route:</string>
+    <string name="departure_list_item_departure_time_now">Now</string>
+    <string name="departure_list_item_departure_time_in_minutes">In %d minute(s)</string>
+    <string name="departure_list_item_departure_time_before_minutes">Before %d minute(s)</string>
+    <string name="departure_list_item_route_no_route">No information available</string>
+    <string name="departure_list_header_title_upcoming_departures">Upcoming departures</string>
+    <string name="departure_list_header_title_nothing_found">No upcoming departures available</string>
+
+    <string name="view_no_data_text">There seems to be no data.\nDo you want to try loading again?</string>
+</resources>

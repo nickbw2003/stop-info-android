@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_spacing">8dp</dimen>
+    <dimen name="triple_spacing">24dp</dimen>
+    <dimen name="fab_spacing">16dp</dimen>
+    <dimen name="view_no_data_refresh_button_dimension">48dp</dimen>
+</resources>

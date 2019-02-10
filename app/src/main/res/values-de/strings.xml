@@ -1,0 +1,38 @@
+<resources>
+    <string name="permission_request_dialog_title">Berechtigungen erforderlich</string>
+    <string name="permission_request_dialog_text">Folgende Berechtigungen sind erforderlich:\n</string>
+    <string name="permission_request_dialog_positive_option_title">OK</string>
+    <string name="permission_request_dialog_negative_option_title">Abbrechen</string>
+
+    <string name="activity_main_info_got_it">OK</string>
+
+    <string name="fragment_map_station_search_button_label">Hier suchen</string>
+
+    <string name="station_list_header_title_last_viewed_on_map">Zuletzt auf der Karte angezeigt</string>
+    <string name="station_list_header_title_nothing_found">Keine Haltestellen-Infos vorhanden</string>
+    <string name="station_list_header_title_search_results">Suchergebnisse</string>
+
+    <string name="map_dest_label">Karte</string>
+    <string name="station_list_dest_label">Liste</string>
+    <string name="station_detail_dest_label">Haltestellen-Infos</string>
+
+    <string name="info_search_for_nearby_stations_zoom">Zoomen um Suche wieder zu aktivieren</string>
+    <string name="info_tap_departure_list_item_to_show_details">Für mehr Details einen Eintrag wählen</string>
+
+    <string name="error_location_permission_unavailable">Standort Berechtigung nicht gewährt</string>
+    <string name="error_data_loading_stations_by_name">Fehler bei der Suche nach Haltestellen</string>
+    <string name="error_data_loading_stations_by_coordinate">Fehler beim Laden der Haltestellen</string>
+    <string name="error_data_loading_departures_by_origin_station">Fehler beim Laden der Abfahrten</string>
+    <string name="error_retry_label">Nochmal</string>
+
+    <string name="departure_line_direction_from_title_text">Von:</string>
+    <string name="departure_line_direction_route_details_title_text">Route:</string>
+    <string name="departure_list_item_departure_time_now">Jetzt</string>
+    <string name="departure_list_item_departure_time_in_minutes">In %d Minute(n)</string>
+    <string name="departure_list_item_departure_time_before_minutes">Vor %d Minute(n)</string>
+    <string name="departure_list_item_route_no_route">Nicht verfügbar</string>
+    <string name="departure_list_header_title_upcoming_departures">Die nächsten Abfahrten</string>
+    <string name="departure_list_header_title_nothing_found">Keine Abfahrten verfügbar</string>
+
+    <string name="view_no_data_text">Es scheinen keine Daten verfügbar zu sein.\nErneut versuchen?</string>
+</resources>
