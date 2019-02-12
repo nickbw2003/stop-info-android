@@ -20,4 +20,6 @@
 
     <style name="TextAppearance.StopInfo.NoDataView.Text" parent="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
+    <style name="TextAppearance.MoreMenuListItemView.Title" parent="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
 </resources>

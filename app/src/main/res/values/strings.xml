@@ -18,6 +18,7 @@
     <string name="map_dest_label">Map</string>
     <string name="station_list_dest_label">List</string>
     <string name="station_detail_dest_label">Station details</string>
+    <string name="more_dest_label">More</string>
 
     <string name="info_search_for_nearby_stations_zoom">Zoom in to re-enable the search button</string>
     <string name="info_tap_departure_list_item_to_show_details">Tap an item of the list to show more details</string>
@@ -38,4 +39,6 @@
     <string name="departure_list_header_title_nothing_found">No upcoming departures available</string>
 
     <string name="view_no_data_text">There seems to be no data.\nDo you want to try loading again?</string>
+
+    <string name="more_menu_entry_licenses">Licenses</string>
 </resources>

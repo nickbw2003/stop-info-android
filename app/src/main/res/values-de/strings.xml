@@ -15,6 +15,7 @@
     <string name="map_dest_label">Karte</string>
     <string name="station_list_dest_label">Liste</string>
     <string name="station_detail_dest_label">Haltestellen-Infos</string>
+    <string name="more_dest_label">Mehr</string>
 
     <string name="info_search_for_nearby_stations_zoom">Zoomen um Suche wieder zu aktivieren</string>
     <string name="info_tap_departure_list_item_to_show_details">Für mehr Details einen Eintrag wählen</string>
@@ -35,4 +36,6 @@
     <string name="departure_list_header_title_nothing_found">Keine Abfahrten verfügbar</string>
 
     <string name="view_no_data_text">Es scheinen keine Daten verfügbar zu sein.\nErneut versuchen?</string>
+
+    <string name="more_menu_entry_licenses">Lizenzen</string>
 </resources>
