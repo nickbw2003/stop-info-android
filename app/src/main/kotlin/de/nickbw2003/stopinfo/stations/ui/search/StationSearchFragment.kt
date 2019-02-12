@@ -52,6 +52,11 @@ class StationSearchFragment : DataLoadingFragment<StationSearchViewModel, List<S
         viewModel.searchResultTitle.observe(this, Observer { stationListAdapter.title = getString(it) })
     }
 
+    override fun onPause() {
+        super.onPause()
+        setKeyBoardVisibility(station_list, false)
+    }
+
     override fun handleDataChanged(data: List<Station>) {
         stationListAdapter.stations = data
     }
