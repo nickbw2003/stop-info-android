@@ -11,6 +11,8 @@
 
     <string name="fragment_map_station_search_button_label">Search nearby</string>
 
+    <string name="fragment_station_search_search_hint">Search</string>
+
     <string name="station_list_header_title_last_viewed_on_map">Last viewed on map</string>
     <string name="station_list_header_title_nothing_found">Nothing found</string>
     <string name="station_list_header_title_search_results">Search results</string>
