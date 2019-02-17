@@ -52,6 +52,11 @@ class StationSearchFragment : DataLoadingFragment<StationSearchViewModel, List<S
         viewModel.searchResultTitle.observe(this, Observer { stationListAdapter.title = getString(it) })
     }
 
+    override fun onPause() {
+        super.onPause()
+        setKeyBoardVisibility(station_list, false)
+    }
+
     override fun handleDataChanged(data: List<Station>) {
         stationListAdapter.stations = data
     }
@@ -67,6 +72,7 @@ class StationSearchFragment : DataLoadingFragment<StationSearchViewModel, List<S
             setVoiceRecognitionDelegate(VoiceRecognitionDelegate(this@StationSearchFragment))
             setDimBackground(false)
             setKeyBoardVisibility(findViewById(R.id.inputEt), true)
+            setQueryInputHint(getString(R.string.fragment_station_search_search_hint))
 
             setOnSearchConfirmedListener { _, query ->
                 setKeyBoardVisibility(station_list, false)

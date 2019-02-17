@@ -36,4 +36,10 @@
             app:argType="de.nickbw2003.stopinfo.stations.data.models.Station"
             android:defaultValue="@null" />
     </fragment>
+
+    <fragment
+        android:id="@+id/more_dest"
+        android:name="de.nickbw2003.stopinfo.more.ui.MoreFragment"
+        android:label="@string/more_dest_label"
+        tools:layout="@layout/fragment_more" />
 </navigation>

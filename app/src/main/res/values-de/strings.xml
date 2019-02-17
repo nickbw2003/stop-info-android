@@ -8,6 +8,8 @@
 
     <string name="fragment_map_station_search_button_label">Hier suchen</string>
 
+    <string name="fragment_station_search_search_hint">Suche</string>
+
     <string name="station_list_header_title_last_viewed_on_map">Zuletzt auf der Karte angezeigt</string>
     <string name="station_list_header_title_nothing_found">Keine Haltestellen-Infos vorhanden</string>
     <string name="station_list_header_title_search_results">Suchergebnisse</string>
@@ -15,6 +17,7 @@
     <string name="map_dest_label">Karte</string>
     <string name="station_list_dest_label">Liste</string>
     <string name="station_detail_dest_label">Haltestellen-Infos</string>
+    <string name="more_dest_label">Mehr</string>
 
     <string name="info_search_for_nearby_stations_zoom">Zoomen um Suche wieder zu aktivieren</string>
     <string name="info_tap_departure_list_item_to_show_details">Für mehr Details einen Eintrag wählen</string>
@@ -35,4 +38,12 @@
     <string name="departure_list_header_title_nothing_found">Keine Abfahrten verfügbar</string>
 
     <string name="view_no_data_text">Es scheinen keine Daten verfügbar zu sein.\nErneut versuchen?</string>
+
+    <string name="more_menu_entry_licenses">Lizenzen</string>
+    <string name="more_menu_version_information">StopInfo v. %1$s (%2$s)</string>
+    <string name="more_menu_rate_stop_info">Bewerte StopInfo auf Google Play</string>
+    <string name="more_menu_imprint">Impressum</string>
+    <string name="more_menu_privacy_statement">Datenschutzerklärung</string>
+    <string name="more_menu_contact_mail">Feedback per Mail</string>
+    <string name="more_menu_contact_twitter">Feedback per Twitter</string>
 </resources>

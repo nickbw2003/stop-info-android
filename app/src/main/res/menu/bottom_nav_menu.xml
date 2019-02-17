@@ -3,9 +3,13 @@
     <item
         android:id="@id/map_dest"
         android:icon="@drawable/ic_map"
-        android:title="@string/map_dest_label"/>
+        android:title="@string/map_dest_label" />
     <item
         android:id="@id/station_list_dest"
         android:icon="@drawable/ic_list"
-        android:title="@string/station_list_dest_label"/>
+        android:title="@string/station_list_dest_label" />
+    <item
+        android:id="@id/more_dest"
+        android:icon="@drawable/ic_more_vert"
+        android:title="@string/more_dest_label" />
 </menu>
