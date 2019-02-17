@@ -44,4 +44,9 @@
 
     <string name="more_menu_entry_licenses">Licenses</string>
     <string name="more_menu_version_information">StopInfo v. %1$s (%2$s)</string>
+    <string name="more_menu_rate_stop_info">Rate StopInfo on Google Play</string>
+    <string name="more_menu_imprint">Imprint</string>
+    <string name="more_menu_privacy_statement">Privacy</string>
+    <string name="more_menu_contact_mail">Send feedback by mail</string>
+    <string name="more_menu_contact_twitter">Send feedback by Twitter</string>
 </resources>

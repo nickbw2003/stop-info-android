@@ -41,4 +41,9 @@
 
     <string name="more_menu_entry_licenses">Lizenzen</string>
     <string name="more_menu_version_information">StopInfo v. %1$s (%2$s)</string>
+    <string name="more_menu_rate_stop_info">Bewerte StopInfo auf Google Play</string>
+    <string name="more_menu_imprint">Impressum</string>
+    <string name="more_menu_privacy_statement">Datenschutzerklärung</string>
+    <string name="more_menu_contact_mail">Feedback per Mail</string>
+    <string name="more_menu_contact_twitter">Feedback per Twitter</string>
 </resources>
