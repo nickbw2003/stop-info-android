@@ -7,8 +7,13 @@ import kotlinx.android.synthetic.main.item_view_network.view.*
 
 class NetworkItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(networkInfo: NetworkInfo, isSelected: Boolean, onItemClick: ((networkInfo: NetworkInfo) -> Unit)?) = with(itemView) {
+        itemView.setOnClickListener {
+            onItemClick?.invoke(networkInfo)
+        }
+        is_selected.setOnClickListener {
+            onItemClick?.invoke(networkInfo)
+        }
         network_name.text = networkInfo.name
         is_selected.isChecked = isSelected
-        onItemClick?.invoke(networkInfo)
     }
 }
