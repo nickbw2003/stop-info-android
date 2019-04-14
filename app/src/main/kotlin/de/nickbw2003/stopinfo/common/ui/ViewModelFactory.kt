@@ -14,6 +14,8 @@ import de.nickbw2003.stopinfo.stations.ui.detail.StationDetailViewModel
 import de.nickbw2003.stopinfo.stations.ui.search.StationSearchViewModel
 import de.nickbw2003.stopinfo.common.data.PreferencesAccess
 import de.nickbw2003.stopinfo.common.util.SingletonHolder
+import de.nickbw2003.stopinfo.networks.data.NetworksService
+import de.nickbw2003.stopinfo.networks.ui.selection.NetworkSelectionViewModel
 
 
 class ViewModelFactory(context: Context) : ViewModelProvider.Factory {
@@ -23,6 +25,8 @@ class ViewModelFactory(context: Context) : ViewModelProvider.Factory {
         StationsService(applicationContext.getString(R.string.stop_info_service_base_url))
     private val departuresService =
         DeparturesService(applicationContext.getString(R.string.stop_info_service_base_url))
+    private val networksService =
+        NetworksService(applicationContext.getString(R.string.stop_info_service_base_url))
     private val preferenceUtil = PreferencesAccess(applicationContext)
 
     @Suppress("UNCHECKED_CAST")
@@ -43,6 +47,9 @@ class ViewModelFactory(context: Context) : ViewModelProvider.Factory {
             modelClass.isAssignableFrom(StationDetailViewModel::class.java) -> StationDetailViewModel(
                 departuresService,
                 preferenceUtil
+            ) as T
+            modelClass.isAssignableFrom(NetworkSelectionViewModel::class.java) -> NetworkSelectionViewModel(
+                networksService
             ) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }
