@@ -26,6 +26,7 @@
     <string name="error_data_loading_stations_by_name">Fehler bei der Suche nach Haltestellen</string>
     <string name="error_data_loading_stations_by_coordinate">Fehler beim Laden der Haltestellen</string>
     <string name="error_data_loading_departures_by_origin_station">Fehler beim Laden der Abfahrten</string>
+    <string name="error_data_loading_available_networks">Fehler beim Laden der verfügbaren Verkehrs-Verbunde</string>
     <string name="error_retry_label">Nochmal</string>
 
     <string name="departure_line_direction_from_title_text">Von:</string>

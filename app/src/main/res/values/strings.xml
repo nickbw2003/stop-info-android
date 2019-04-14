@@ -29,6 +29,7 @@
     <string name="error_data_loading_stations_by_name">Error while searching for stations</string>
     <string name="error_data_loading_stations_by_coordinate">Error while searching for stations</string>
     <string name="error_data_loading_departures_by_origin_station">Error while searching for departures</string>
+    <string name="error_data_loading_available_networks">Error while loading available network</string>
     <string name="error_retry_label">Retry</string>
 
     <string name="departure_line_direction_from_title_text">From:</string>
