@@ -14,6 +14,7 @@
     <string name="station_list_header_title_nothing_found">Keine Haltestellen-Infos vorhanden</string>
     <string name="station_list_header_title_search_results">Suchergebnisse</string>
 
+    <string name="network_selection_dest_label">Netz-Auswahl</string>
     <string name="map_dest_label">Karte</string>
     <string name="station_list_dest_label">Liste</string>
     <string name="station_detail_dest_label">Haltestellen-Infos</string>

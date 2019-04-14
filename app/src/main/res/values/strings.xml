@@ -17,6 +17,7 @@
     <string name="station_list_header_title_nothing_found">Nothing found</string>
     <string name="station_list_header_title_search_results">Search results</string>
 
+    <string name="network_selection_dest_label">Network selection</string>
     <string name="map_dest_label">Map</string>
     <string name="station_list_dest_label">List</string>
     <string name="station_detail_dest_label">Station details</string>
