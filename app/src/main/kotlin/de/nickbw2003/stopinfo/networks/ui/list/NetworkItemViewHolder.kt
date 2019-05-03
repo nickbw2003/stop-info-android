@@ -13,7 +13,7 @@ class NetworkItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         is_selected.setOnClickListener {
             onItemClick?.invoke(networkInfo)
         }
-        network_name.text = networkInfo.name
+        is_selected.text = networkInfo.name
         is_selected.isChecked = isSelected
     }
 }
