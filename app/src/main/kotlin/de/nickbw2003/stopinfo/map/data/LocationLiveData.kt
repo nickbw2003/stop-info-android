@@ -13,11 +13,19 @@ import de.nickbw2003.stopinfo.map.data.models.Location
 class LocationLiveData(
     context: Context,
     private val interval: Long,
-    private val defaultLocation: Location
+    defaultLocation: Location
 ) :
     LiveData<Location>() {
     private val applicationContext = if (context as? Application != null) context else context.applicationContext
     private val fusedLocationClient = LocationServices.getFusedLocationProviderClient(applicationContext)
+
+    var defaultLocation: Location = defaultLocation
+        set(value) {
+            field = value
+            if (!updatesEnabled) {
+                this.value = value
+            }
+        }
 
     private val locationRequest = LocationRequest.create()?.apply {
         interval = this@LocationLiveData.interval

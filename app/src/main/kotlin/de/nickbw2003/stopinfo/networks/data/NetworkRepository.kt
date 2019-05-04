@@ -1,9 +1,15 @@
 package de.nickbw2003.stopinfo.networks.data
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import de.nickbw2003.stopinfo.common.data.PreferencesAccess
 import de.nickbw2003.stopinfo.networks.data.models.NetworkInfo
 
 class NetworkRepository(private val preferencesAccess: PreferencesAccess) {
+    private val _currentNetworkChanged = MutableLiveData<NetworkInfo?>()
+    val currentNetworkChanged: LiveData<NetworkInfo?>
+        get() = _currentNetworkChanged
+
     var currentNetwork: NetworkInfo?
         get() {
             val id = preferencesAccess.getString(KEY_CURRENT_NETWORK_ID, null)
@@ -53,6 +59,8 @@ class NetworkRepository(private val preferencesAccess: PreferencesAccess) {
                     )
                 }
             }
+
+            _currentNetworkChanged.postValue(value)
         }
 
     companion object {

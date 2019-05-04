@@ -22,6 +22,14 @@ class LocationService(context: Context, networkRepository: NetworkRepository) {
             currentLocation.updatesEnabled = value
         }
 
+    init {
+        networkRepository.currentNetworkChanged.observeForever {
+            if (it != null) {
+                currentLocation.defaultLocation = Location(it.lat, it.lng)
+            }
+        }
+    }
+
     companion object {
         private const val UPDATE_INTERVAL = 2000L
         private const val DEFAULT_LOCATION_LAT = 49.0092205
