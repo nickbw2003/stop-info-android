@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import de.nickbw2003.stopinfo.R
+import de.nickbw2003.stopinfo.common.ui.navigation.NavigationHandler
 import de.nickbw2003.stopinfo.common.util.WebLinkUtil
 import de.nickbw2003.stopinfo.more.data.models.MoreMenuEntry
 import kotlinx.android.synthetic.main.fragment_more.*
@@ -37,11 +38,17 @@ class MoreFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(requireContext(), LinearLayout.VERTICAL))
 
             moreMenuListAdapter.onItemClick = { menuEntry ->
-                if (menuEntry.webLinkUrlStringResource != null) {
-                    WebLinkUtil.openWebLink(context, getString(menuEntry.webLinkUrlStringResource))
-                } else if (menuEntry == MoreMenuEntry.LICENSE) {
-                    OssLicensesMenuActivity.setActivityTitle(getString(R.string.more_menu_entry_licenses))
-                    context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
+                when {
+                    menuEntry.webLinkUrlStringResource != null -> {
+                        WebLinkUtil.openWebLink(context, getString(menuEntry.webLinkUrlStringResource))
+                    }
+                    menuEntry == MoreMenuEntry.LICENSE -> {
+                        OssLicensesMenuActivity.setActivityTitle(getString(R.string.more_menu_entry_licenses))
+                        context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
+                    }
+                    menuEntry == MoreMenuEntry.NETWORK_SELECTION -> {
+                        (activity as? NavigationHandler)?.navigate(R.id.more_to_network_selection)
+                    }
                 }
             }
 

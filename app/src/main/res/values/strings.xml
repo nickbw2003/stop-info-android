@@ -13,10 +13,16 @@
 
     <string name="fragment_station_search_search_hint">Search</string>
 
+    <string name="fragment_network_selection_select_btn_title">Select</string>
+
+    <string name="network_list_header_title_select">Please select a network</string>
+    <string name="network_list_header_title_nothing_found">Unfortunately there are no networks available</string>
+
     <string name="station_list_header_title_last_viewed_on_map">Last viewed on map</string>
     <string name="station_list_header_title_nothing_found">Nothing found</string>
     <string name="station_list_header_title_search_results">Search results</string>
 
+    <string name="network_selection_dest_label">Network selection</string>
     <string name="map_dest_label">Map</string>
     <string name="station_list_dest_label">List</string>
     <string name="station_detail_dest_label">Station details</string>
@@ -29,6 +35,7 @@
     <string name="error_data_loading_stations_by_name">Error while searching for stations</string>
     <string name="error_data_loading_stations_by_coordinate">Error while searching for stations</string>
     <string name="error_data_loading_departures_by_origin_station">Error while searching for departures</string>
+    <string name="error_data_loading_available_networks">Error while loading available networks</string>
     <string name="error_retry_label">Retry</string>
 
     <string name="departure_line_direction_from_title_text">From:</string>
@@ -49,4 +56,5 @@
     <string name="more_menu_privacy_statement">Privacy</string>
     <string name="more_menu_contact_mail">Send feedback by mail</string>
     <string name="more_menu_contact_twitter">Send feedback by Twitter</string>
+    <string name="more_menu_network_selection">@string/network_selection_dest_label</string>
 </resources>

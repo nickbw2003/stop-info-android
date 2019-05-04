@@ -10,10 +10,16 @@
 
     <string name="fragment_station_search_search_hint">Suche</string>
 
+    <string name="fragment_network_selection_select_btn_title">Weiter</string>
+
+    <string name="network_list_header_title_select">Bitte wähle ein Netz</string>
+    <string name="network_list_header_title_nothing_found">Leider sind aktuell keine Netze verfügbar</string>
+
     <string name="station_list_header_title_last_viewed_on_map">Zuletzt auf der Karte angezeigt</string>
     <string name="station_list_header_title_nothing_found">Keine Haltestellen-Infos vorhanden</string>
     <string name="station_list_header_title_search_results">Suchergebnisse</string>
 
+    <string name="network_selection_dest_label">Netz-Auswahl</string>
     <string name="map_dest_label">Karte</string>
     <string name="station_list_dest_label">Liste</string>
     <string name="station_detail_dest_label">Haltestellen-Infos</string>
@@ -26,6 +32,7 @@
     <string name="error_data_loading_stations_by_name">Fehler bei der Suche nach Haltestellen</string>
     <string name="error_data_loading_stations_by_coordinate">Fehler beim Laden der Haltestellen</string>
     <string name="error_data_loading_departures_by_origin_station">Fehler beim Laden der Abfahrten</string>
+    <string name="error_data_loading_available_networks">Fehler beim Laden der verfügbaren Netze</string>
     <string name="error_retry_label">Nochmal</string>
 
     <string name="departure_line_direction_from_title_text">Von:</string>
@@ -46,4 +53,5 @@
     <string name="more_menu_privacy_statement">Datenschutzerklärung</string>
     <string name="more_menu_contact_mail">Feedback per Mail</string>
     <string name="more_menu_contact_twitter">Feedback per Twitter</string>
+    <string name="more_menu_network_selection">@string/network_selection_dest_label</string>
 </resources>
