@@ -46,6 +46,8 @@ class NetworkSelectionFragment : DataLoadingFragment<NetworkSelectionViewModel, 
 
         setupNetworkList()
 
+        viewModel.listHeaderTitle.observe(this, Observer { networkListAdapter.title = getString(it) })
+
         viewModel.currentNetwork.observe(this, Observer { currentNetwork ->
             val index = if (currentNetwork == null) 0 else networkListAdapter.networkInfos.indexOfFirst { it.network == currentNetwork.network }
 

@@ -12,6 +12,9 @@
 
     <string name="fragment_network_selection_select_btn_title">Weiter</string>
 
+    <string name="network_list_header_title_select">Bitte wähle ein Netz</string>
+    <string name="network_list_header_title_nothing_found">Leider sind aktuell keine Netze verfügbar</string>
+
     <string name="station_list_header_title_last_viewed_on_map">Zuletzt auf der Karte angezeigt</string>
     <string name="station_list_header_title_nothing_found">Keine Haltestellen-Infos vorhanden</string>
     <string name="station_list_header_title_search_results">Suchergebnisse</string>

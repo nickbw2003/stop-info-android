@@ -16,6 +16,10 @@ class NetworkSelectionViewModel(
     val currentNetwork: LiveData<NetworkInfo?>
         get() = _currentNetwork
 
+    private val _listHeaderTitle = MutableLiveData<Int>()
+    val listHeaderTitle: LiveData<Int>
+        get() = _listHeaderTitle
+
     override fun hasData(data: List<NetworkInfo>): Boolean {
         return data.isNotEmpty()
     }
@@ -25,6 +29,14 @@ class NetworkSelectionViewModel(
             val networks = networksService.getAvailableNetworks() ?: emptyList()
             _data.postValue(networks)
             _currentNetwork.postValue(networkRepository.currentNetwork)
+
+            val titleResource =
+                if (networks.isEmpty())
+                    R.string.network_list_header_title_nothing_found
+                else
+                    R.string.network_list_header_title_select
+
+            _listHeaderTitle.postValue(titleResource)
             networks
         }
     }
