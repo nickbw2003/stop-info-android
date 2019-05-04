@@ -4,7 +4,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import de.nickbw2003.stopinfo.common.data.OkHttpClientFactory
 import de.nickbw2003.stopinfo.departures.data.models.Departure
 import de.nickbw2003.stopinfo.common.data.models.Error
-import de.nickbw2003.stopinfo.common.data.models.Network
 import de.nickbw2003.stopinfo.common.data.WebException
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
@@ -29,11 +28,11 @@ class DeparturesWebClient(baseUrl: String) {
         .build()
         .create()
 
-    suspend fun findByOriginStation(originStationId: String, network: Network): List<Departure>? {
+    suspend fun findByOriginStation(originStationId: String, network: String): List<Departure>? {
         val response: Response<List<Departure>>?
 
         try {
-            response = departuresApi.findByOriginStationAsync(originStationId, network.toString()).await()
+            response = departuresApi.findByOriginStationAsync(originStationId, network).await()
         } catch (ex: Exception) {
             throw WebException(
                 Error.DATA_LOADING_ERROR_DEPARTURES_BY_ORIGIN_STATION,

@@ -21,15 +21,15 @@ import de.nickbw2003.stopinfo.networks.ui.selection.NetworkSelectionViewModel
 
 class ViewModelFactory(context: Context) : ViewModelProvider.Factory {
     private val applicationContext = if (context as? Application != null) context else context.applicationContext
-    private val locationService = LocationService(applicationContext)
-    private val stationsService =
-        StationsService(applicationContext.getString(R.string.stop_info_service_base_url))
-    private val departuresService =
-        DeparturesService(applicationContext.getString(R.string.stop_info_service_base_url))
-    private val networksService =
-        NetworksService(applicationContext.getString(R.string.stop_info_service_base_url))
     private val preferenceUtil = PreferencesAccess(applicationContext)
     private val networkRepository = NetworkRepository(preferenceUtil)
+    private val locationService = LocationService(applicationContext, networkRepository)
+    private val stationsService =
+        StationsService(applicationContext.getString(R.string.stop_info_service_base_url), networkRepository)
+    private val departuresService =
+        DeparturesService(applicationContext.getString(R.string.stop_info_service_base_url), networkRepository)
+    private val networksService =
+        NetworksService(applicationContext.getString(R.string.stop_info_service_base_url))
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
