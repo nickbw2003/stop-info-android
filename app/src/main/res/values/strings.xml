@@ -53,4 +53,5 @@
     <string name="more_menu_privacy_statement">Privacy</string>
     <string name="more_menu_contact_mail">Send feedback by mail</string>
     <string name="more_menu_contact_twitter">Send feedback by Twitter</string>
+    <string name="more_menu_network_selection">@string/network_selection_dest_label</string>
 </resources>

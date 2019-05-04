@@ -50,4 +50,5 @@
     <string name="more_menu_privacy_statement">Datenschutzerklärung</string>
     <string name="more_menu_contact_mail">Feedback per Mail</string>
     <string name="more_menu_contact_twitter">Feedback per Twitter</string>
+    <string name="more_menu_network_selection">@string/network_selection_dest_label</string>
 </resources>

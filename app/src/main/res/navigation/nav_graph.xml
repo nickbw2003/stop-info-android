@@ -53,5 +53,9 @@
         android:id="@+id/more_dest"
         android:name="de.nickbw2003.stopinfo.more.ui.MoreFragment"
         android:label="@string/more_dest_label"
-        tools:layout="@layout/fragment_more" />
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/more_to_network_selection"
+            app:destination="@id/network_selection_dest" />
+    </fragment>
 </navigation>

@@ -7,6 +7,7 @@ enum class MoreMenuEntry(
     val titleStringResource: Int,
     val webLinkUrlStringResource: Int? = null
 ) {
+    NETWORK_SELECTION(R.drawable.ic_settings, R.string.more_menu_network_selection, null),
     IMPRINT(R.drawable.ic_imprint, R.string.more_menu_imprint, R.string.stop_info_imprint_url),
     PRIVACY(R.drawable.ic_privacy, R.string.more_menu_privacy_statement, R.string.stop_info_privacy_url),
     RATE(R.drawable.ic_star, R.string.more_menu_rate_stop_info, R.string.play_store_url),
