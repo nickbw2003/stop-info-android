@@ -8,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import de.nickbw2003.stopinfo.common.data.models.Error
 import de.nickbw2003.stopinfo.common.data.models.Info
 import de.nickbw2003.stopinfo.common.ui.messages.MessageHandler
+import de.nickbw2003.stopinfo.common.ui.navigation.NavigationHandler
 import kotlinx.android.synthetic.main.view_no_data.*
 
 abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewModel<U> {
@@ -28,6 +29,7 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
         viewModel.isLoading.observe(this, Observer { indicateLoading(it) })
         viewModel.error.observe(this, Observer { showError(it) })
         viewModel.info.observe(this, Observer { showInfo(it) })
+        viewModel.navigationAction.observe(this, Observer { navigate(it) })
 
         if (!usesCustomDataObserver) {
             viewModel.data.observe(this, Observer { handleDataChanged(it) })
@@ -60,5 +62,9 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
 
     private fun showInfo(info: Info) {
         (activity as? MessageHandler)?.handleInfo((info))
+    }
+
+    private fun navigate(action: Int) {
+        (activity as? NavigationHandler)?.navigate(action)
     }
 }

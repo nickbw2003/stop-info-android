@@ -13,6 +13,7 @@ import kotlinx.coroutines.*
 abstract class DataLoadingViewModel<T> : ViewModel() {
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    private val _navigationAction = SingleLiveEvent<Int>()
 
     protected val _isLoading = MutableLiveData<Boolean>()
     protected val _error = SingleLiveEvent<Error>()
@@ -34,6 +35,9 @@ abstract class DataLoadingViewModel<T> : ViewModel() {
 
     val noDataMessageVisible: LiveData<Boolean>
         get() = _noDataMessageVisible
+
+    val navigationAction: LiveData<Int>
+        get() = _navigationAction
 
     override fun onCleared() {
         super.onCleared()
@@ -58,5 +62,9 @@ abstract class DataLoadingViewModel<T> : ViewModel() {
                 _isLoading.value = false
             }
         }
+    }
+
+    protected fun performNavigation(action: Int) {
+        _navigationAction.postValue(action)
     }
 }

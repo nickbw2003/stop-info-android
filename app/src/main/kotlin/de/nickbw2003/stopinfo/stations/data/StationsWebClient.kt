@@ -3,7 +3,6 @@ package de.nickbw2003.stopinfo.stations.data
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import de.nickbw2003.stopinfo.common.data.OkHttpClientFactory
 import de.nickbw2003.stopinfo.common.data.models.Error
-import de.nickbw2003.stopinfo.common.data.models.Network
 import de.nickbw2003.stopinfo.stations.data.models.Station
 import de.nickbw2003.stopinfo.common.data.WebException
 import kotlinx.coroutines.Deferred
@@ -32,7 +31,7 @@ class StationsWebClient(baseUrl: String) {
         .build()
         .create()
 
-    suspend fun findByName(name: String, network: Network): List<Station>? {
+    suspend fun findByName(name: String, network: String): List<Station>? {
         return findStations(Error.DATA_LOADING_ERROR_STATIONS_BY_NAME) {
             stationsApi.findByNameAsync(
                 name,
@@ -41,7 +40,7 @@ class StationsWebClient(baseUrl: String) {
         }
     }
 
-    suspend fun findByLatLng(lat: Double, lng: Double, network: Network): List<Station>? {
+    suspend fun findByLatLng(lat: Double, lng: Double, network: String): List<Station>? {
         val formattedLat = (lat * 1E6).toLong().toString()
         val formattedLng = (lng * 1E6).toLong().toString()
 
