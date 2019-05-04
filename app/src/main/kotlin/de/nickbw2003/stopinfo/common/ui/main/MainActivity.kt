@@ -4,6 +4,7 @@ import android.Manifest
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
@@ -72,7 +73,12 @@ class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, M
                 nav_host.view?.layoutParams = navHostLayoutParams
             }
 
-            bottom_nav.visibility = if (visible) View.VISIBLE else View.GONE
+            val bottomNavLayoutParams = bottom_nav.layoutParams as? CoordinatorLayout.LayoutParams
+
+            if (bottomNavLayoutParams != null) {
+                bottomNavLayoutParams.height = if (visible) ViewGroup.LayoutParams.WRAP_CONTENT else 0
+                bottom_nav.layoutParams = bottomNavLayoutParams
+            }
         })
     }
 
