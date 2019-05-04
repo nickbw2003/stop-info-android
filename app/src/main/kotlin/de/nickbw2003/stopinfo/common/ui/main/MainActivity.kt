@@ -2,8 +2,13 @@ package de.nickbw2003.stopinfo.common.ui.main
 
 import android.Manifest
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.snackbar.Snackbar
@@ -13,13 +18,27 @@ import de.nickbw2003.stopinfo.common.components.PermissionsComponent
 import de.nickbw2003.stopinfo.common.data.models.Error
 import de.nickbw2003.stopinfo.common.data.models.Info
 import de.nickbw2003.stopinfo.common.ui.messages.MessageHandler
+import de.nickbw2003.stopinfo.common.ui.navigation.NavigationHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, MessageHandler {
+class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, MessageHandler, NavigationHandler {
     private val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(this, ViewModelFactory.getInstance(this)).get(MainViewModel::class.java)
     }
+
+    private val navController: NavController by lazy { findNavController(R.id.nav_host) }
+
+    private val actionBarHeight: Int?
+        get() {
+            val typedValue = TypedValue()
+
+            return if (theme.resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
+                TypedValue.complexToDimensionPixelSize(typedValue.data,resources.displayMetrics)
+            } else {
+                null
+            }
+        }
 
     private var snackBar: Snackbar? = null
 
@@ -35,17 +54,35 @@ class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, M
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         lifecycle.addObserver(permissionsComponent)
 
-        with(findNavController(R.id.nav_host)) {
-            bottom_nav.setupWithNavController(this)
-            addOnDestinationChangedListener { _, _, _ -> snackBar?.dismiss() }
+        bottom_nav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            viewModel.onScreenChanged(destination.id)
+            snackBar?.dismiss()
         }
+
+        viewModel.navigationVisible.observe(this, Observer { visible ->
+            val navHostLayoutParams = nav_host.view?.layoutParams as? CoordinatorLayout.LayoutParams
+
+            if (navHostLayoutParams != null) {
+                navHostLayoutParams.bottomMargin = if (visible) actionBarHeight ?: 0 else 0
+                nav_host.view?.layoutParams = navHostLayoutParams
+            }
+
+            bottom_nav.visibility = if (visible) View.VISIBLE else View.GONE
+        })
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         permissionsComponent.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun navigate(action: Int, args: Bundle?) {
+        navController.navigate(action, args)
     }
 
     override fun handleError(error: Error, retryAction: (() -> Unit)?) {
