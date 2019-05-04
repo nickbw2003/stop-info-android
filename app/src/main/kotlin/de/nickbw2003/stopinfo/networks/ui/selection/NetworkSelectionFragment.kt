@@ -26,6 +26,10 @@ class NetworkSelectionFragment : DataLoadingFragment<NetworkSelectionViewModel, 
             .get(NetworkSelectionViewModel::class.java)
     }
 
+    override val viewsToHideOnNoData: List<View> by lazy { listOf(network_list, select_network_btn) }
+
+    override val reloadAction: () -> Unit = { viewModel.loadAvailableNetworks() }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_network_selection, container, false)
     }
