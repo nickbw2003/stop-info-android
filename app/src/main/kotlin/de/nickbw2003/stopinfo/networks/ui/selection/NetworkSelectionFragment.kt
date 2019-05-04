@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -44,6 +45,14 @@ class NetworkSelectionFragment : DataLoadingFragment<NetworkSelectionViewModel, 
         select_network_btn.setOnClickListener { viewModel.onNetworkSelected(networkListAdapter.networkInfos[networkListAdapter.selectedIndex]) }
 
         setupNetworkList()
+
+        viewModel.currentNetwork.observe(this, Observer { currentNetwork ->
+            val index = if (currentNetwork == null) 0 else networkListAdapter.networkInfos.indexOfFirst { it.network == currentNetwork.network }
+
+            if (index > -1) {
+                networkListAdapter.selectedIndex = index
+            }
+        })
 
         viewModel.loadAvailableNetworks()
     }
