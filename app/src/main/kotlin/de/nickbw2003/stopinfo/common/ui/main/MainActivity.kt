@@ -80,6 +80,10 @@ class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, M
                 bottom_nav.layoutParams = bottomNavLayoutParams
             }
         })
+
+        viewModel.navigationAction.observe(this, Observer { navigate(it) })
+
+        viewModel.onViewCreated(savedInstanceState == null)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

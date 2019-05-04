@@ -36,7 +36,8 @@ class ViewModelFactory(context: Context) : ViewModelProvider.Factory {
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> MainViewModel(
                 locationService,
-                preferenceUtil
+                preferenceUtil,
+                networkRepository
             ) as T
             modelClass.isAssignableFrom(MapViewModel::class.java) -> MapViewModel(
                 locationService,

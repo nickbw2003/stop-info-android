@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_network_selection">
         <action
             android:id="@+id/network_selection_to_map"
-            app:destination="@id/map_dest" />
+            app:destination="@id/map_dest"
+            app:popUpTo="@id/network_selection_dest"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -43,8 +45,8 @@
 
         <argument
             android:name="StationDetail.Station"
-            app:argType="de.nickbw2003.stopinfo.stations.data.models.Station"
-            android:defaultValue="@null" />
+            android:defaultValue="@null"
+            app:argType="de.nickbw2003.stopinfo.stations.data.models.Station" />
     </fragment>
 
     <fragment

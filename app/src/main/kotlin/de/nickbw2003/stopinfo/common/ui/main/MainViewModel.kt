@@ -8,13 +8,28 @@ import de.nickbw2003.stopinfo.map.data.LocationService
 import de.nickbw2003.stopinfo.common.data.models.Info
 import de.nickbw2003.stopinfo.common.data.PreferencesAccess
 import de.nickbw2003.stopinfo.common.util.SingleLiveEvent
+import de.nickbw2003.stopinfo.networks.data.NetworkRepository
 
-class MainViewModel(private val locationService: LocationService, private val preferencesAccess: PreferencesAccess) :
+class MainViewModel(
+    private val locationService: LocationService,
+    private val preferencesAccess: PreferencesAccess,
+    private val networkRepository: NetworkRepository
+) :
     ViewModel() {
 
     private val _navigationVisible = MutableLiveData<Boolean>()
     val navigationVisible: LiveData<Boolean>
         get() = _navigationVisible
+
+    private val _navigationAction = SingleLiveEvent<Int>()
+    val navigationAction: LiveData<Int>
+        get() = _navigationAction
+
+    fun onViewCreated(initially: Boolean) {
+        if (initially && networkRepository.currentNetwork != null) {
+            _navigationAction.postValue(R.id.network_selection_to_map)
+        }
+    }
 
     fun onScreenChanged(screenId: Int) {
         _navigationVisible.postValue(screenId != R.id.network_selection_dest)
