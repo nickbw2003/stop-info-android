@@ -42,7 +42,11 @@ class NetworkSelectionFragment : DataLoadingFragment<NetworkSelectionViewModel, 
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         toolbar.setupWithNavController(navController, appBarConfiguration)
 
-        select_network_btn.setOnClickListener { viewModel.onNetworkSelected(networkListAdapter.networkInfos[networkListAdapter.selectedIndex]) }
+        select_network_btn.setOnClickListener {
+            if (networkListAdapter.networkInfos.size > networkListAdapter.selectedIndex) {
+                viewModel.onNetworkSelected(networkListAdapter.networkInfos[networkListAdapter.selectedIndex])
+            }
+        }
 
         setupNetworkList()
 
