@@ -27,7 +27,7 @@ class MainViewModel(
 
     fun onViewCreated(initially: Boolean) {
         if (initially && networkRepository.currentNetwork != null) {
-            _navigationAction.postValue(R.id.network_selection_to_map)
+            _navigationAction.postValue(R.id.start_to_map)
         }
     }
 

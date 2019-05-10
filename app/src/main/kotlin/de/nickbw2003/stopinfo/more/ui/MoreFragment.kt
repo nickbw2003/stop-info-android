@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +18,7 @@ import de.nickbw2003.stopinfo.R
 import de.nickbw2003.stopinfo.common.ui.navigation.NavigationHandler
 import de.nickbw2003.stopinfo.common.util.WebLinkUtil
 import de.nickbw2003.stopinfo.more.data.models.MoreMenuEntry
+import de.nickbw2003.stopinfo.networks.ui.selection.NetworkSelectionFragment
 import kotlinx.android.synthetic.main.fragment_more.*
 
 class MoreFragment : Fragment() {
@@ -47,7 +49,7 @@ class MoreFragment : Fragment() {
                         context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
                     }
                     menuEntry == MoreMenuEntry.NETWORK_SELECTION -> {
-                        (activity as? NavigationHandler)?.navigate(R.id.more_to_network_selection)
+                        (activity as? NavigationHandler)?.navigate(R.id.more_to_network_selection, bundleOf(NetworkSelectionFragment.ARGUMENT_KEY_IS_START_DESTINATION to false))
                     }
                 }
             }
