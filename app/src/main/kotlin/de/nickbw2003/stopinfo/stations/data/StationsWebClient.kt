@@ -35,7 +35,7 @@ class StationsWebClient(baseUrl: String) {
         return findStations(Error.DATA_LOADING_ERROR_STATIONS_BY_NAME) {
             stationsApi.findByNameAsync(
                 name,
-                network.toString()
+                network
             )
         }
     }
@@ -45,7 +45,7 @@ class StationsWebClient(baseUrl: String) {
         val formattedLng = (lng * 1E6).toLong().toString()
 
         return findStations(Error.DATA_LOADING_ERROR_STATIONS_BY_LAT_LNG) {
-            stationsApi.findByLatLngAsync(formattedLat, formattedLng, network.toString())
+            stationsApi.findByLatLngAsync(formattedLat, formattedLng, network)
         }
     }
 
