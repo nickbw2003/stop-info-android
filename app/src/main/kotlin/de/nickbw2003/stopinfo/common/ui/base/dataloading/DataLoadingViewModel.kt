@@ -39,10 +39,14 @@ abstract class DataLoadingViewModel<T> : ViewModel() {
     val navigationAction: LiveData<Int>
         get() = _navigationAction
 
+    open val isRefreshable: Boolean = true
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
     }
+
+    open fun refresh() {}
 
     protected abstract fun hasData(data: T): Boolean
 

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import de.nickbw2003.stopinfo.R
 import de.nickbw2003.stopinfo.common.data.models.Error
 import de.nickbw2003.stopinfo.common.data.models.Info
 import de.nickbw2003.stopinfo.common.ui.messages.MessageHandler
@@ -21,10 +22,12 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
         no_data_view != null
     }
 
+    private val swipeRefresh: SwipeRefreshLayout? get() = view?.findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupLoadingIndicator(view)
+        setupLoadingIndicator()
 
         viewModel.isLoading.observe(this, Observer { indicateLoading(it) })
         viewModel.error.observe(this, Observer { showError(it) })
@@ -43,12 +46,13 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
 
     abstract fun handleDataChanged(data: U)
 
-    private fun setupLoadingIndicator(view: View) {
-        (view as SwipeRefreshLayout).isEnabled = false
+    private fun setupLoadingIndicator() {
+        swipeRefresh?.isEnabled = viewModel.isRefreshable
+        swipeRefresh?.setOnRefreshListener { viewModel.refresh() }
     }
 
     private fun indicateLoading(isLoading: Boolean) {
-        (view as? SwipeRefreshLayout)?.isRefreshing = isLoading
+        swipeRefresh?.isRefreshing = isLoading
     }
 
     private fun showNoDataView(isVisible: Boolean) {

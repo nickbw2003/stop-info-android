@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,8 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/fab_spacing"
-            android:text="@string/fragment_map_station_search_button_label"
             android:enabled="false"
+            android:text="@string/fragment_map_station_search_button_label"
             app:icon="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,14 +34,14 @@
             android:layout_marginEnd="@dimen/fab_spacing"
             android:layout_marginBottom="@dimen/fab_spacing"
             android:visibility="gone"
-            app:srcCompat="@drawable/ic_locate_me"
             app:backgroundTint="@android:color/white"
-            app:rippleColor="@color/lighter_gray"
             app:layout_constraintBottom_toBottomOf="@+id/search_for_stations_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/search_for_stations_btn"
-            app:layout_constraintTop_toTopOf="@+id/search_for_stations_btn" />
+            app:layout_constraintTop_toTopOf="@+id/search_for_stations_btn"
+            app:rippleColor="@color/lighter_gray"
+            app:srcCompat="@drawable/ic_locate_me" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

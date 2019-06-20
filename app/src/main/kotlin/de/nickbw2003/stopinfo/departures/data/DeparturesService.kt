@@ -8,6 +8,6 @@ class DeparturesService(serviceBaseUrl: String, private val networkRepository: N
 
     suspend fun findByOriginStation(originStationId: String): List<Departure>? {
         val network = networkRepository.currentNetwork?.network ?: return emptyList()
-        return departuresWebClient.findByOriginStation(originStationId, network)
+        return departuresWebClient.findByOriginStation(originStationId, network)?.sortedBy { it.realTime ?: it.plannedTime }
     }
 }

@@ -19,6 +19,8 @@ class StationSearchViewModel(private val stationsService: StationsService) : Dat
             onQueryChanged()
         }
 
+    override val isRefreshable: Boolean = false
+
     init {
         showLatestStationsCollectedByMap()
     }

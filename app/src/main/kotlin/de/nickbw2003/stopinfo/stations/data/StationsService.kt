@@ -10,6 +10,12 @@ class StationsService(serviceBaseUrl: String, private val networkRepository: Net
     val collectedStations: List<Station>
         get() = _collectedStations
 
+    init {
+        networkRepository.currentNetworkChanged.observeForever {
+            _collectedStations.clear()
+        }
+    }
+
     suspend fun findByName(name: String): List<Station>? {
         val network = networkRepository.currentNetwork?.network ?: return emptyList()
         return find { stationsWebClient.findByName(name, network) }

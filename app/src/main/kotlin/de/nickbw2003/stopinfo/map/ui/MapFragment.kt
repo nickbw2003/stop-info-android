@@ -11,7 +11,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -24,6 +23,7 @@ import de.nickbw2003.stopinfo.R
 import de.nickbw2003.stopinfo.common.components.PermissionsComponent
 import de.nickbw2003.stopinfo.common.ui.ViewModelFactory
 import de.nickbw2003.stopinfo.common.ui.base.dataloading.DataLoadingFragment
+import de.nickbw2003.stopinfo.common.ui.navigation.NavigationHandler
 import de.nickbw2003.stopinfo.common.util.extensions.toBitmap
 import de.nickbw2003.stopinfo.map.data.models.Location
 import de.nickbw2003.stopinfo.stations.data.models.Station
@@ -73,8 +73,7 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
             m.setOnCameraIdleListener { onCameraIdle() }
             m.setOnMarkerClickListener {
                 (it.tag as? Station)?.let { station ->
-                    val args = bundleOf(StationDetailFragment.ARGUMENT_KEY_STATION to station)
-                    view?.findNavController()?.navigate(R.id.map_to_station_detail, args)
+                    (activity as? NavigationHandler)?.navigate(R.id.map_to_station_detail, bundleOf(StationDetailFragment.ARGUMENT_KEY_STATION to station))
                     return@setOnMarkerClickListener true
                 }
 
