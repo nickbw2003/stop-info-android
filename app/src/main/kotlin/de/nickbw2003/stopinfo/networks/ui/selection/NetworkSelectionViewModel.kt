@@ -26,6 +26,11 @@ class NetworkSelectionViewModel(
         return data.isNotEmpty()
     }
 
+    override fun refresh() {
+        super.refresh()
+        loadAvailableNetworks()
+    }
+
     fun loadAvailableNetworks() {
         launchDataLoad {
             val networks = networksService.getAvailableNetworks() ?: emptyList()

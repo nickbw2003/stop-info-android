@@ -34,6 +34,8 @@ class MapViewModel(
     val locateMeVisible: LiveData<Boolean>
         get() = _locateMeVisible
 
+    override val isRefreshable: Boolean = false
+
     init {
         _currentLocation.addSource(locationService.currentLocation, ::onLocationReceived)
     }
