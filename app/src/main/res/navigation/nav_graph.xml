@@ -11,10 +11,19 @@
         android:label="@string/network_selection_dest_label"
         tools:layout="@layout/fragment_network_selection">
         <action
-            android:id="@+id/network_selection_to_map"
+            android:id="@+id/start_to_map"
             app:destination="@id/map_dest"
             app:popUpTo="@id/network_selection_dest"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/network_selection_to_map"
+            app:popUpTo="@id/map_dest" />
+
+        <argument
+            android:name="NetworkSelection.IsStartDestination"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
 
     <fragment

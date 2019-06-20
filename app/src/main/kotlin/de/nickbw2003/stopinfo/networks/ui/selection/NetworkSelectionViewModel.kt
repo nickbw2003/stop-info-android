@@ -20,8 +20,15 @@ class NetworkSelectionViewModel(
     val listHeaderTitle: LiveData<Int>
         get() = _listHeaderTitle
 
+    var isStartDestination: Boolean = false
+
     override fun hasData(data: List<NetworkInfo>): Boolean {
         return data.isNotEmpty()
+    }
+
+    override fun refresh() {
+        super.refresh()
+        loadAvailableNetworks()
     }
 
     fun loadAvailableNetworks() {
@@ -43,6 +50,6 @@ class NetworkSelectionViewModel(
 
     fun onNetworkSelected(network: NetworkInfo) {
         networkRepository.currentNetwork = network
-        performNavigation(R.id.network_selection_to_map)
+        performNavigation(if (isStartDestination) R.id.start_to_map else R.id.network_selection_to_map)
     }
 }

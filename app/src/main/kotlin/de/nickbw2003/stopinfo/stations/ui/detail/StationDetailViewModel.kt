@@ -27,6 +27,11 @@ class StationDetailViewModel(
         return data.isNotEmpty()
     }
 
+    override fun refresh() {
+        super.refresh()
+        loadDepartures()
+    }
+
     fun loadDepartures() {
         val s = station ?: throw IllegalStateException("Station has to be set")
 
