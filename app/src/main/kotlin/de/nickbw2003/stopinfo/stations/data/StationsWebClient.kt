@@ -1,11 +1,9 @@
 package de.nickbw2003.stopinfo.stations.data
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import de.nickbw2003.stopinfo.common.data.OkHttpClientFactory
+import de.nickbw2003.stopinfo.common.data.WebException
 import de.nickbw2003.stopinfo.common.data.models.Error
 import de.nickbw2003.stopinfo.stations.data.models.Station
-import de.nickbw2003.stopinfo.common.data.WebException
-import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,14 +15,13 @@ import retrofit2.http.Path
 class StationsWebClient(baseUrl: String) {
     private interface StationsApi {
         @GET("stations/byName/{name}")
-        fun findByNameAsync(@Path("name") name: String, @Header("x-network") network: String): Deferred<Response<List<Station>>>
+        suspend fun findByNameAsync(@Path("name") name: String, @Header("x-network") network: String): Response<List<Station>>
 
         @GET("stations/byLatLng/{lat}/{lng}")
-        fun findByLatLngAsync(@Path("lat") lat: String, @Path("lng") lng: String, @Header("x-network") network: String): Deferred<Response<List<Station>>>
+        suspend fun findByLatLngAsync(@Path("lat") lat: String, @Path("lng") lng: String, @Header("x-network") network: String): Response<List<Station>>
     }
 
     private val stationsApi: StationsApi = Retrofit.Builder()
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(baseUrl)
         .client(OkHttpClientFactory.client)
@@ -51,12 +48,12 @@ class StationsWebClient(baseUrl: String) {
 
     private suspend fun findStations(
         error: Error,
-        findOperation: () -> Deferred<Response<List<Station>>>
+        findOperation: suspend () -> Response<List<Station>>
     ): List<Station>? {
         val response: Response<List<Station>>?
 
         try {
-            response = findOperation().await()
+            response = findOperation()
         } catch (ex: Exception) {
             throw WebException(
                 error,
