@@ -30,15 +30,21 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/station_list"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_view_station" />
+            android:layout_height="match_parent">
 
-        <include
-            layout="@layout/view_no_data"
-            android:visibility="gone" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/station_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_view_station" />
+
+            <include
+                layout="@layout/view_no_data"
+                android:visibility="gone" />
+
+        </FrameLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
