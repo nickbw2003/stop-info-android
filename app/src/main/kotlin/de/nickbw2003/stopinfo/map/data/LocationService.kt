@@ -25,7 +25,7 @@ class LocationService(context: Context, networkRepository: NetworkRepository) {
     init {
         networkRepository.currentNetworkChanged.observeForever {
             if (it != null) {
-                currentLocation.defaultLocation = Location(it.lat, it.lng)
+                currentLocation.defaultLocation = Location(it.lat, it.lng, true)
             }
         }
     }
