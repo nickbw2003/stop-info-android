@@ -58,7 +58,7 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
         viewModel.locateMeVisible.observe(this, Observer { setLocateMeButtonVisibility(it) })
     }
 
-    override fun onAttachFragment(childFragment: Fragment?) {
+    override fun onAttachFragment(childFragment: Fragment) {
         super.onAttachFragment(childFragment)
 
         if (childFragment is SupportMapFragment) {
