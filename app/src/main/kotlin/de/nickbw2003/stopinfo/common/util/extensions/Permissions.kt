@@ -8,6 +8,8 @@ import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
 import de.nickbw2003.stopinfo.R
 
+private const val undefinedPermissionGroupName = "android.permission-group.UNDEFINED"
+
 fun Activity.checkPermissions(permissions: Array<String>, requestCode: Int): Pair<Boolean, Array<String>> {
     val requestPermissions: (Array<String>, Int) -> Unit = { a, b -> ActivityCompat.requestPermissions(this, a, b) }
     return checkPermissions(permissions, requestCode, requestPermissions)
@@ -67,15 +69,19 @@ fun Fragment.getReadablePermissionGroupInfo(permissions: Array<String>): Array<S
 }
 
 fun Context.getReadablePermissionGroupInfo(permissions: Array<String>): Array<String> {
-    return permissions.map { p -> getPermissionGroupDescription(p) }
+    return permissions.mapNotNull { p -> getPermissionGroupDescription(p) }
         .groupBy { it }
         .keys
         .toTypedArray()
 }
 
-private fun Context.getPermissionGroupDescription(permission: String): String {
-    val group = packageManager.getPermissionInfo(permission, 0).group
-    with(packageManager.getPermissionGroupInfo(group, 0)) {
-        return "${loadLabel(packageManager)}: ${loadDescription(packageManager)}"
+private fun Context.getPermissionGroupDescription(permission: String): String? {
+    val permissionInfo = packageManager.getPermissionInfo(permission, 0)
+    val permissionGroupInfo = permissionInfo.group?.let { packageManager.getPermissionGroupInfo(it, 0) }
+
+    return if (arrayOf(null, undefinedPermissionGroupName).contains(permissionGroupInfo?.name)) {
+        "${permissionInfo?.loadDescription(packageManager)}"
+    } else {
+        "${permissionGroupInfo?.loadLabel(packageManager)}: ${permissionGroupInfo?.loadDescription(packageManager)}"
     }
 }
