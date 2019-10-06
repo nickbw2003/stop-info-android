@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/item_view_more_menu_height"
     android:background="?attr/selectableItemBackground"
-    android:padding="@dimen/default_spacing">
+    android:padding="@dimen/default_spacing"
+    tools:ignore="Overdraw">
 
     <ImageView
         android:id="@+id/menu_entry_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:contentDescription="@null"
         android:tint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

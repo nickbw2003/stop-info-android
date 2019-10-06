@@ -12,6 +12,7 @@
         android:layout_marginTop="@dimen/default_spacing"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:contentDescription="@string/error_retry_label"
         android:focusable="true"
         android:src="@drawable/ic_refresh"
         app:layout_constraintEnd_toEndOf="parent"

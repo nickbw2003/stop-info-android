@@ -2,7 +2,7 @@ package de.nickbw2003.stopinfo.common.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import de.nickbw2003.stopinfo.common.data.models.Info
 
 class PreferencesAccess(context: Context) {

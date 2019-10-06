@@ -26,9 +26,9 @@ class DepartureItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
         val departureInMinutes = TimeUnit.MILLISECONDS.toMinutes(departureTime.time - System.currentTimeMillis())
 
         departure_time.text = when {
-            departureInMinutes < 0L -> context.getString(R.string.departure_list_item_departure_time_before_minutes, departureInMinutes * -1)
+            departureInMinutes < 0L -> context.resources.getQuantityString(R.plurals.departure_list_item_departure_time_before_minutes, (departureInMinutes * -1).toInt(), departureInMinutes * -1)
             departureInMinutes == 0L -> context.getString(R.string.departure_list_item_departure_time_now)
-            departureInMinutes < 10L -> context.getString(R.string.departure_list_item_departure_time_in_minutes, departureInMinutes)
+            departureInMinutes < 10L -> context.resources.getQuantityString(R.plurals.departure_list_item_departure_time_in_minutes, departureInMinutes.toInt(), departureInMinutes)
             DateUtils.isToday(departureTime.time) -> SimpleDateFormat.getTimeInstance().format(departureTime)
             else -> SimpleDateFormat.getInstance().format(departureTime)
         }
