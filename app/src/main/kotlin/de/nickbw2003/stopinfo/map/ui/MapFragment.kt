@@ -118,8 +118,8 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
     private fun onSearchForStationsClicked() {
         withMap { m ->
             val location = Location(
-                m.cameraPosition.target.latitude,
-                m.cameraPosition.target.longitude
+                lat = m.cameraPosition.target.latitude,
+                lng = m.cameraPosition.target.longitude
             )
             viewModel.onSearchForStationsClicked(location)
         }

@@ -37,7 +37,7 @@ class LocationLiveData(
         override fun onLocationResult(locationResult: LocationResult?) {
             val lastLocation = locationResult?.lastLocation
             lastLocation ?: return
-            value = Location(lastLocation.latitude, lastLocation.longitude)
+            value = Location(lat = lastLocation.latitude, lng = lastLocation.longitude)
         }
     }
 
