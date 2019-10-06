@@ -9,8 +9,9 @@ class LocationService(context: Context, networkRepository: NetworkRepository) {
         context,
         UPDATE_INTERVAL,
         Location(
-            networkRepository.currentNetwork?.lat ?: DEFAULT_LOCATION_LAT,
-            networkRepository.currentNetwork?.lng ?: DEFAULT_LOCATION_LNG, true
+            lat = networkRepository.currentNetwork?.lat ?: DEFAULT_LOCATION_LAT,
+            lng = networkRepository.currentNetwork?.lng ?: DEFAULT_LOCATION_LNG,
+            isDefault = true
         )
     )
 
@@ -25,7 +26,7 @@ class LocationService(context: Context, networkRepository: NetworkRepository) {
     init {
         networkRepository.currentNetworkChanged.observeForever {
             if (it != null) {
-                currentLocation.defaultLocation = Location(it.lat, it.lng)
+                currentLocation.defaultLocation = Location(lat = it.lat, lng = it.lng, isDefault = true)
             }
         }
     }

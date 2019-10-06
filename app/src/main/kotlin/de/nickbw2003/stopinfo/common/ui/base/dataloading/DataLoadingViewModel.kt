@@ -3,6 +3,7 @@ package de.nickbw2003.stopinfo.common.ui.base.dataloading
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import de.nickbw2003.stopinfo.common.data.WebException
 import de.nickbw2003.stopinfo.common.data.models.Error
 import de.nickbw2003.stopinfo.common.data.models.Info
@@ -11,8 +12,6 @@ import kotlinx.coroutines.*
 
 @Suppress("MemberVisibilityCanBePrivate", "PropertyName")
 abstract class DataLoadingViewModel<T> : ViewModel() {
-    private val viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     private val _navigationAction = SingleLiveEvent<Int>()
 
     protected val _isLoading = MutableLiveData<Boolean>()
@@ -41,17 +40,12 @@ abstract class DataLoadingViewModel<T> : ViewModel() {
 
     open val isRefreshable: Boolean = true
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
-
     open fun refresh() {}
 
     protected abstract fun hasData(data: T): Boolean
 
     protected fun launchDataLoad(block: suspend () -> T): Job {
-        return uiScope.launch {
+        return viewModelScope.launch {
             try {
                 _isLoading.value = true
 

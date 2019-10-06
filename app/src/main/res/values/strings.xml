@@ -41,8 +41,17 @@
     <string name="departure_line_direction_from_title_text">From:</string>
     <string name="departure_line_direction_route_details_title_text">Route:</string>
     <string name="departure_list_item_departure_time_now">Now</string>
-    <string name="departure_list_item_departure_time_in_minutes">In %d minute(s)</string>
-    <string name="departure_list_item_departure_time_before_minutes">Before %d minute(s)</string>
+
+    <plurals name="departure_list_item_departure_time_in_minutes">
+        <item quantity="one">In %d minute</item>
+        <item quantity="other">In %d minutes</item>
+    </plurals>
+
+    <plurals name="departure_list_item_departure_time_before_minutes">
+        <item quantity="one">Before %d minute</item>
+        <item quantity="other">Before %d minutes</item>
+    </plurals>
+
     <string name="departure_list_item_route_no_route">No information available</string>
     <string name="departure_list_header_title_upcoming_departures">Upcoming departures</string>
     <string name="departure_list_header_title_nothing_found">No upcoming departures available</string>
