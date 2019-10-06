@@ -16,8 +16,8 @@ android {
         applicationId "de.nickbw2003.stopinfo"
         minSdkVersion minimumSdkVersion
         targetSdkVersion targetSdkVersion
-        versionCode 4000
-        versionName "0.4.0"
+        versionCode 4001
+        versionName "0.4.1"
     }
     buildTypes {
         release {
