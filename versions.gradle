@@ -2,7 +2,7 @@ ext {
     targetSdkVersion = 29
     minimumSdkVersion = 21
 
-    buildToolsVersion = '3.4.2'
+    buildToolsVersion = '3.5.1'
 
     licensesPluginVersion = '0.9.5'
 
