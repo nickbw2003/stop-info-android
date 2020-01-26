@@ -54,8 +54,8 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
         search_for_stations_btn.setOnClickListener { onSearchForStationsClicked() }
         locate_me_btn.setOnClickListener { onLocateMeClicked() }
 
-        viewModel.stationSearchEnabled.observe(this, Observer { setSearchForStationsButtonEnabled(it) })
-        viewModel.locateMeVisible.observe(this, Observer { setLocateMeButtonVisibility(it) })
+        viewModel.stationSearchEnabled.observe(viewLifecycleOwner, Observer { setSearchForStationsButtonEnabled(it) })
+        viewModel.locateMeVisible.observe(viewLifecycleOwner, Observer { setLocateMeButtonVisibility(it) })
     }
 
     override fun onAttachFragment(childFragment: Fragment) {
@@ -80,9 +80,9 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
                 false
             }
 
-            viewModel.currentLocation.observe(this, Observer { setCurrentLocationOnMap(it) })
-            viewModel.currentZoomedLocation.observe(this, Observer { setCurrentZoomedLocationOnMap(it) })
-            viewModel.data.observe(this, Observer { handleDataChanged(it) })
+            viewModel.currentLocation.observe(viewLifecycleOwner, Observer { setCurrentLocationOnMap(it) })
+            viewModel.currentZoomedLocation.observe(viewLifecycleOwner, Observer { setCurrentZoomedLocationOnMap(it) })
+            viewModel.data.observe(viewLifecycleOwner, Observer { handleDataChanged(it) })
         }
     }
 

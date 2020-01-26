@@ -50,8 +50,8 @@ class NetworkSelectionFragment : DataLoadingFragment<NetworkSelectionViewModel, 
         setupNetworkList()
 
         viewModel.isStartDestination = arguments?.getBoolean(ARGUMENT_KEY_IS_START_DESTINATION) ?: false
-        viewModel.listHeaderTitle.observe(this, Observer { networkListAdapter.title = getString(it) })
-        viewModel.currentNetwork.observe(this, Observer { currentNetwork ->
+        viewModel.listHeaderTitle.observe(viewLifecycleOwner, Observer { networkListAdapter.title = getString(it) })
+        viewModel.currentNetwork.observe(viewLifecycleOwner, Observer { currentNetwork ->
             val index = if (currentNetwork == null) 0 else networkListAdapter.networkInfos.indexOfFirst { it.network == currentNetwork.network }
 
             if (index > -1) {

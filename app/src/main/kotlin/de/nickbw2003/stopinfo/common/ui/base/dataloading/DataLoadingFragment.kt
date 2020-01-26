@@ -29,17 +29,17 @@ abstract class DataLoadingFragment<T, U> : Fragment() where T : DataLoadingViewM
 
         setupLoadingIndicator()
 
-        viewModel.isLoading.observe(this, Observer { indicateLoading(it) })
-        viewModel.error.observe(this, Observer { showError(it) })
-        viewModel.info.observe(this, Observer { showInfo(it) })
-        viewModel.navigationAction.observe(this, Observer { navigate(it) })
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { indicateLoading(it) })
+        viewModel.error.observe(viewLifecycleOwner, Observer { showError(it) })
+        viewModel.info.observe(viewLifecycleOwner, Observer { showInfo(it) })
+        viewModel.navigationAction.observe(viewLifecycleOwner, Observer { navigate(it) })
 
         if (!usesCustomDataObserver) {
-            viewModel.data.observe(this, Observer { handleDataChanged(it) })
+            viewModel.data.observe(viewLifecycleOwner, Observer { handleDataChanged(it) })
         }
 
         if (hasNoDataMessage) {
-            viewModel.noDataMessageVisible.observe(this, Observer { showNoDataView(it) })
+            viewModel.noDataMessageVisible.observe(viewLifecycleOwner, Observer { showNoDataView(it) })
             reload_button.setOnClickListener { reloadAction?.invoke() }
         }
     }

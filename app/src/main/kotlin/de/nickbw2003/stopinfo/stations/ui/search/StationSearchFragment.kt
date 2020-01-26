@@ -49,7 +49,7 @@ class StationSearchFragment : DataLoadingFragment<StationSearchViewModel, List<S
         setupSearchInput()
         setupStationList()
 
-        viewModel.searchResultTitle.observe(this, Observer { stationListAdapter.title = getString(it) })
+        viewModel.searchResultTitle.observe(viewLifecycleOwner, Observer { stationListAdapter.title = getString(it) })
     }
 
     override fun onPause() {

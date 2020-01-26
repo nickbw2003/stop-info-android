@@ -44,7 +44,7 @@ class StationDetailFragment : DataLoadingFragment<StationDetailViewModel, List<D
         setupToolbar(station)
         setupDepartureList()
 
-        viewModel.listHeaderTitle.observe(this, Observer { departureListAdapter.title = getString(it) })
+        viewModel.listHeaderTitle.observe(viewLifecycleOwner, Observer { departureListAdapter.title = getString(it) })
 
         viewModel.station = station
         viewModel.loadDepartures()
