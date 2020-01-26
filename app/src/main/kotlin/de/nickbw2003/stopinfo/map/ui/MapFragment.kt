@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -37,7 +37,7 @@ class MapFragment : DataLoadingFragment<MapViewModel, List<Station>>(), OnMapRea
     private val stationMarkers = mutableListOf<Marker>()
 
     override val viewModel: MapViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(requireContext())).get(MapViewModel::class.java)
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext())).get(MapViewModel::class.java)
     }
 
     override val reloadAction: (() -> Unit)? = { onSearchForStationsClicked() }

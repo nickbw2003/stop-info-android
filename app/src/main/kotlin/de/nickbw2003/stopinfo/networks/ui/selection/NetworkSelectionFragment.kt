@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -23,8 +23,7 @@ class NetworkSelectionFragment : DataLoadingFragment<NetworkSelectionViewModel, 
     private val networkListAdapter = NetworkListAdapter()
 
     override val viewModel: NetworkSelectionViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(requireContext()))
-            .get(NetworkSelectionViewModel::class.java)
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext())).get(NetworkSelectionViewModel::class.java)
     }
 
     override val viewsToHideOnNoData: List<View> by lazy { listOf(network_list, select_network_btn) }

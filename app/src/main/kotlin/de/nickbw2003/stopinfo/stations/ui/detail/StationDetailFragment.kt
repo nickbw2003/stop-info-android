@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -26,8 +26,7 @@ class StationDetailFragment : DataLoadingFragment<StationDetailViewModel, List<D
     override val viewsToHideOnNoData: List<View> by lazy { listOf(departure_list) }
 
     override val viewModel: StationDetailViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(requireContext()))
-            .get(StationDetailViewModel::class.java)
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext())).get(StationDetailViewModel::class.java)
     }
 
     override val reloadAction: () -> Unit = { viewModel.loadDepartures() }

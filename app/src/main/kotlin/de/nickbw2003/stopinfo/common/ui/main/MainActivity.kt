@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main), PermissionsComponent.PermissionHost, MessageHandler, NavigationHandler {
     private val viewModel: MainViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(this)).get(MainViewModel::class.java)
+        ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(MainViewModel::class.java)
     }
 
     private val navController: NavController by lazy { findNavController(R.id.nav_host) }

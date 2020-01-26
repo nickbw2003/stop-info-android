@@ -11,7 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +31,7 @@ class StationSearchFragment : DataLoadingFragment<StationSearchViewModel, List<S
     override val viewsToHideOnNoData: List<View> by lazy { listOf(station_list) }
 
     override val viewModel: StationSearchViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(requireContext())).get(StationSearchViewModel::class.java)
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext())).get(StationSearchViewModel::class.java)
     }
 
     override val reloadAction: () -> Unit = {
