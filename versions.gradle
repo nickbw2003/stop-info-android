@@ -20,7 +20,7 @@ ext {
 
     navigationComponentVersion = '2.1.0'
 
-    retrofitVersion = '2.6.0'
+    retrofitVersion = '2.7.1'
 
     persistentSearchViewVersion = '1.0.1'
 
