@@ -6,7 +6,7 @@ ext {
 
     licensesPluginVersion = '0.9.5'
 
-    kotlinVersion = '1.3.50'
+    kotlinVersion = '1.3.61'
     coroutinesVersion = '1.2.1'
 
     playServicesVersion = '17.0.0'
