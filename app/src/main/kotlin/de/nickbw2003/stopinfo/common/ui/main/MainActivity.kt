@@ -3,29 +3,28 @@ package de.nickbw2003.stopinfo.common.ui.main
 import android.Manifest
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.snackbar.Snackbar
 import de.nickbw2003.stopinfo.R
-import de.nickbw2003.stopinfo.common.ui.ViewModelFactory
 import de.nickbw2003.stopinfo.common.components.PermissionsComponent
 import de.nickbw2003.stopinfo.common.data.models.Error
 import de.nickbw2003.stopinfo.common.data.models.Info
+import de.nickbw2003.stopinfo.common.ui.ViewModelFactory
 import de.nickbw2003.stopinfo.common.ui.messages.MessageHandler
 import de.nickbw2003.stopinfo.common.ui.navigation.NavigationHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, MessageHandler, NavigationHandler {
+class MainActivity : AppCompatActivity(R.layout.activity_main), PermissionsComponent.PermissionHost, MessageHandler, NavigationHandler {
     private val viewModel: MainViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory.getInstance(this)).get(MainViewModel::class.java)
+        ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(MainViewModel::class.java)
     }
 
     private val navController: NavController by lazy { findNavController(R.id.nav_host) }
@@ -54,7 +53,6 @@ class MainActivity : AppCompatActivity(), PermissionsComponent.PermissionHost, M
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         lifecycle.addObserver(permissionsComponent)
 

@@ -59,7 +59,8 @@ dependencies {
     implementation "com.google.android.material:material:$materialComponentsVersion"
 
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.core:core-ktx:$coreKtxVersion"
     implementation "androidx.preference:preference:$preferenceComponentVersion"
