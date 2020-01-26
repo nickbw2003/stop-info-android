@@ -18,7 +18,7 @@ ext {
     coreKtxVersion = '1.1.0'
     preferenceComponentVersion = '1.1.0'
 
-    navigationComponentVersion = '2.1.0'
+    navigationComponentVersion = '2.2.0'
 
     retrofitVersion = '2.7.1'
 
